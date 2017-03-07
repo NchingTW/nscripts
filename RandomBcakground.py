@@ -9,6 +9,7 @@ import math
 import pickle
 import pybedtools
 from argparse import ArgumentParser
+import os
 
 from collections import OrderedDict, Counter
 from collections import defaultdict
@@ -88,7 +89,8 @@ def assigned_peaks_region(peak_bed_file, output_folder, number_of_permutation,RB
 
 
 def main():
-    usage:"I don't know what I should put"
+
+    usage = "I don't know what I should put"
 
 
     parser = ArgumentParser(usage)
