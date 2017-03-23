@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #!/usr/bin/env python
 from future.utils import raise_with_traceback
 import pandas as pd
@@ -22,8 +23,24 @@ from collections import OrderedDict, Counter
 #from gscripts.general import region_helpers
 #from clipper.src import get_genomic_regions
 
+=======
+#!/bin/env python
+from collections import OrderedDict, Counter
+>>>>>>> Stashed changes
 
+from argparse import ArgumentParser
 
+import pandas as pd
+import pybedtools
+# Todo : we comment CLIP_ananlysis and assined region
+#from clipper.src import CLIP_analysis
+#from collections import defaultdict
+#from clipper.src import CLIP_analysis_display
+#from gscripts.rnaseq import helpers
+#from gscripts import GO
+#from gscripts.general import parsers
+#from gscripts.general import region_helpers
+#from clipper.src import get_genomic_regions
 
 def make_region_dictionary():
     regions = OrderedDict()
@@ -51,7 +68,7 @@ def check_RBP_is_a_string(RBP):
     if not isinstance(RBP, str):
         raise_with_traceback(ValueError(RBP)) 
 
-def save_dataframe_to_bed_file(dataframe, output_folder,RBP):
+def save_dataframe_to_bed_file(dataframe        , output_folder,RBP):
     check_RBP_is_a_string(RBP)
     save_bed_file = pybedtools.BedTool.from_dataframe(dataframe).saveas(output_folder+'/'+str(RBP)+'.peak.bed')
     return save_bed_file
@@ -89,6 +106,10 @@ def assigned_peaks_region(peak_bed_file, output_folder, number_of_permutation,RB
     bed_df = make_bed_for_region_assigned(peak_bed_file)
     save_datafeame_to_bed_file(bed_df, output_folder,RBP)
     bedtools_read_bed_file = read_bed_through_bedtools(output_folder+'/'+str(RBP)+'.peak.bed')
+<<<<<<< Updated upstream
+=======
+    # Todo : we comment CLIP_ananlysis and assined region
+>>>>>>> Stashed changes
     #assinged_region = CLIP_analysis.assign_to_regions(bedtools_read_bed_file, assigned_dir=output_folder, nrand=number_of_permutation, species="hg19")
     return assinged_region
 
